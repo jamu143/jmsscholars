@@ -11,7 +11,8 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
   .hero {
-    padding: 72px 0 96px;
+    padding-top: 72px;
+    padding-bottom: 96px;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
     gap: 80px;
@@ -87,7 +88,7 @@
   .cta-band .btn-primary:hover { background: var(--gold-light); }
 
   @media (max-width: 900px) {
-    .hero { grid-template-columns: 1fr; padding: 40px 0 64px; }
+    .hero { grid-template-columns: 1fr; padding-top: 40px; padding-bottom: 64px; }
     .why-grid { grid-template-columns: 1fr; }
     .how-steps { grid-template-columns: 1fr 1fr; }
     .courses-preview { grid-template-columns: 1fr; }
@@ -120,8 +121,10 @@
 </header>
 
 <main>
-  <section class="hero">
-    <div class="wrap-inner">
+  <section style="position:relative; overflow:hidden;">
+    <div class="symbol-field" id="symbol-field" aria-hidden="true"></div>
+    <div class="wrap hero">
+    <div>
       <div class="eyebrow">WACE Year 11–12 Methods</div>
       <h1>Mathematics, worked <em>properly</em>.</h1>
       <div class="hero-tagline">Journey made simple.</div>
@@ -149,7 +152,9 @@
         <span>Sign in to access worksheets and solutions</span>
       </div>
     </div>
+    </div>
   </section>
+
 
   <div class="wrap">
     <div class="trust-strip">
@@ -182,17 +187,17 @@
         <p>Every worksheet is drawn from a real WACE past-paper bank spanning 2016–2025, sequenced to match how the syllabus actually builds across the year.</p>
       </div>
       <div class="why-grid">
-        <div class="card">
+        <div class="card tilt-ready">
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg>
           <h3>A real curriculum, not loose worksheets</h3>
           <p>A 40-week sequenced programme across all four WACE terms, tracking the Cambridge Methods textbook and built directly from past exam papers.</p>
         </div>
-        <div class="card">
+        <div class="card tilt-ready">
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
           <h3>University-level teaching experience</h3>
           <p>Over a decade teaching mathematics at university level, including years of calculus marking and assessment design — the same rigour applied here.</p>
         </div>
-        <div class="card">
+        <div class="card tilt-ready">
           <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="1"/><path d="M8 2v4M16 2v4M3 10h18"/></svg>
           <h3>Calculator-free and calculator-assumed, always distinguished</h3>
           <p>Every worksheet is tagged the way the actual WACE exam is structured, so students build fluency in both papers, not just one.</p>
@@ -200,6 +205,12 @@
       </div>
     </div>
   </section>
+
+  <div class="graph-divider">
+    <svg width="180" height="48" viewBox="0 0 180 48">
+      <path class="graph-divider-path" d="M 5 38 C 40 38, 55 10, 90 24 S 150 6, 175 14"/>
+    </svg>
+  </div>
 
   <section id="how-it-works" class="tight" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
     <div class="wrap">
@@ -239,17 +250,17 @@
         <h2>WACE Mathematics, Year 11 and 12.</h2>
       </div>
       <div class="courses-preview" style="grid-template-columns: repeat(3, 1fr);">
-        <div class="card">
+        <div class="card tilt-ready">
           <span class="tag tag-ca" style="margin-bottom:16px;">Year 11 &amp; 12</span>
           <h3>Specialist</h3>
           <p>The extension pathway for mathematics-intensive university degrees — complex numbers, vectors, and advanced calculus.</p>
         </div>
-        <div class="card">
+        <div class="card tilt-ready">
           <span class="tag tag-cf" style="margin-bottom:16px;">Year 11 &amp; 12</span>
           <h3>Methods</h3>
           <p>The core ATAR course — calculus, probability, and exam-intensive preparation across both WACE papers.</p>
         </div>
-        <div class="card">
+        <div class="card tilt-ready">
           <span class="tag tag-cf" style="margin-bottom:16px;">Year 11 &amp; 12</span>
           <h3>Applications</h3>
           <p>The applied pathway — statistics, finance, and networks, for students who prefer maths grounded in real-world contexts.</p>

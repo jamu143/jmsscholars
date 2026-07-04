@@ -63,69 +63,27 @@
     color: var(--navy);
   }
 
-  .course-block { display: none; }
+  .course-block { display: none; max-width: 720px; margin: 0 auto; }
   .course-block.active { display: block; }
 
   .unit-head {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
     padding-bottom: 20px;
     border-bottom: 2px solid var(--line);
   }
 
   .unit-head h2 { font-size: 30px; }
 
-  .course-intro { font-size: 15px; max-width: 640px; margin-bottom: 32px; }
-
-  .topic-table {
-    display: grid;
-    gap: 2px;
-    background: var(--line);
-    border: 1px solid var(--line);
-  }
-
-  .topic-row {
-    background: var(--paper);
-    padding: 20px 24px;
-    display: grid;
-    grid-template-columns: 90px 1fr 100px;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .topic-row.head-row {
-    background: var(--navy);
-    color: var(--cream);
-  }
-
-  .topic-row.head-row span {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(247,245,240,0.7);
-  }
-
-  .topic-week {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: var(--gold);
-  }
-
-  .topic-name { font-size: 15px; color: var(--charcoal); font-weight: 500; }
-
-  .weight-bar-wrap { display: flex; align-items: center; gap: 8px; }
-  .weight-bar { height: 6px; background: var(--line); flex: 1; position: relative; }
-  .weight-bar-fill { height: 100%; background: var(--gold); }
-  .weight-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--charcoal-soft); min-width: 30px; }
+  .course-intro { font-size: 16px; line-height: 1.8; }
 
   .sample-note {
     background: var(--sage-bg);
     border: 1px solid var(--sage);
     padding: 20px 24px;
-    margin-top: 24px;
+    margin-top: 32px;
     display: flex;
     align-items: center;
     gap: 16px;
@@ -137,8 +95,6 @@
   .sample-note a { color: #1f2a19; font-weight: 500; text-decoration: underline; }
 
   @media (max-width: 900px) {
-    .topic-row { grid-template-columns: 60px 1fr; }
-    .topic-row .weight-bar-wrap, .topic-row.head-row span:nth-child(3) { display: none; }
     .unit-head { flex-direction: column; align-items: flex-start; gap: 12px; }
     .course-pick { gap: 8px; }
     .course-pick button { padding: 10px 16px; font-size: 13px; }
@@ -174,7 +130,7 @@
     <div class="wrap">
       <div class="eyebrow">Courses</div>
       <h1>WACE Mathematics,<br>Year 11 and 12.</h1>
-      <p>Specialist, Methods, and Applications — sequenced curricula for both years, built from the Cambridge textbooks and a WACE past-paper bank covering 2016 to 2025.</p>
+      <p>Specialist, Methods, and Applications — sequenced curricula for both years, built from WACE past-paper bank covering.</p>
     </div>
   </section>
 
@@ -206,17 +162,8 @@
             <span class="tag tag-ca">Unit 1 &amp; 2</span>
             <h2 style="margin-top:12px;">Year 11 Specialist</h2>
           </div>
-          <span style="font-family:'DM Mono',monospace;font-size:13px;color:var(--charcoal-soft);">Terms 1–4</span>
         </div>
         <p class="course-intro">The extension course for students pursuing Specialist through to Year 12. Deeper treatment of algebra, functions, and geometry alongside the Methods content, building the reasoning needed for Unit 3 &amp; 4 Specialist.</p>
-        <div class="topic-table">
-          <div class="topic-row head-row"><span>Week</span><span>Topic</span><span>Exam weight</span></div>
-          <div class="topic-row"><span class="topic-week">W01–04</span><span class="topic-name">Combinatorics</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:60%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W05–08</span><span class="topic-name">Vectors in the plane</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:70%"></span></span><span class="weight-label">High</span></span></div>
-          <div class="topic-row"><span class="topic-week">W09–12</span><span class="topic-name">Geometry — circle theorems</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:55%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W13–16</span><span class="topic-name">Trigonometry — compound angles</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:65%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W17–20</span><span class="topic-name">Matrices</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:60%"></span></span><span class="weight-label">Med</span></span></div>
-        </div>
         <div class="sample-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
           <span>Want to see teaching quality before enrolling? A free sample Week 1 worksheet is available — <a href="contact.html">request it here</a>.</span>
@@ -230,17 +177,8 @@
             <span class="tag tag-cf">Unit 1 &amp; 2</span>
             <h2 style="margin-top:12px;">Year 11 Methods</h2>
           </div>
-          <span style="font-family:'DM Mono',monospace;font-size:13px;color:var(--charcoal-soft);">Terms 1–4</span>
         </div>
         <p class="course-intro">Foundations for the ATAR Methods pathway — functions, trigonometry, counting and probability, and introductory calculus. Builds the base the Year 12 course depends on.</p>
-        <div class="topic-table">
-          <div class="topic-row head-row"><span>Week</span><span>Topic</span><span>Exam weight</span></div>
-          <div class="topic-row"><span class="topic-week">W01–04</span><span class="topic-name">Functions and graphs</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:70%"></span></span><span class="weight-label">High</span></span></div>
-          <div class="topic-row"><span class="topic-week">W05–08</span><span class="topic-name">Trigonometric functions</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:60%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W09–12</span><span class="topic-name">Counting and probability</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:50%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W13–16</span><span class="topic-name">Introductory differential calculus</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:80%"></span></span><span class="weight-label">High</span></span></div>
-          <div class="topic-row"><span class="topic-week">W17–20</span><span class="topic-name">Exponential functions</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:55%"></span></span><span class="weight-label">Med</span></span></div>
-        </div>
         <div class="sample-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
           <span>Want to see teaching quality before enrolling? A free sample Week 1 worksheet is available — <a href="contact.html">request it here</a>.</span>
@@ -254,17 +192,8 @@
             <span class="tag tag-cf">Unit 1 &amp; 2</span>
             <h2 style="margin-top:12px;">Year 11 Applications</h2>
           </div>
-          <span style="font-family:'DM Mono',monospace;font-size:13px;color:var(--charcoal-soft);">Terms 1–4</span>
         </div>
         <p class="course-intro">A practical, applied mathematics course for students not pursuing Methods or Specialist — consumer finance, statistics, and everyday problem-solving.</p>
-        <div class="topic-table">
-          <div class="topic-row head-row"><span>Week</span><span>Topic</span><span>Exam weight</span></div>
-          <div class="topic-row"><span class="topic-week">W01–04</span><span class="topic-name">Consumer arithmetic</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:65%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W05–08</span><span class="topic-name">Algebra and matrices</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:55%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W09–12</span><span class="topic-name">Shape and measurement</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:50%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W13–16</span><span class="topic-name">Univariate data analysis</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:60%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W17–20</span><span class="topic-name">Linear equations and graphs</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:55%"></span></span><span class="weight-label">Med</span></span></div>
-        </div>
         <div class="sample-note">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
           <span>Want to see teaching quality before enrolling? A free sample Week 1 worksheet is available — <a href="contact.html">request it here</a>.</span>
@@ -278,18 +207,8 @@
             <span class="tag tag-ca">Unit 3 &amp; 4</span>
             <h2 style="margin-top:12px;">Year 12 Specialist</h2>
           </div>
-          <span style="font-family:'DM Mono',monospace;font-size:13px;color:var(--charcoal-soft);">Terms 1–4 · ATAR</span>
         </div>
         <p class="course-intro">The most demanding WACE mathematics course, for students aiming at mathematics-intensive university degrees. Complex numbers, vectors, and advanced calculus, taken alongside Methods.</p>
-        <div class="topic-table">
-          <div class="topic-row head-row"><span>Week</span><span>Topic</span><span>Exam weight</span></div>
-          <div class="topic-row"><span class="topic-week">W01–04</span><span class="topic-name">Complex numbers</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:80%"></span></span><span class="weight-label">High</span></span></div>
-          <div class="topic-row"><span class="topic-week">W05–08</span><span class="topic-name">Vectors in three dimensions</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:75%"></span></span><span class="weight-label">High</span></span></div>
-          <div class="topic-row"><span class="topic-week">W09–12</span><span class="topic-name">Further calculus and applications</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:85%"></span></span><span class="weight-label">High</span></span></div>
-          <div class="topic-row"><span class="topic-week">W13–16</span><span class="topic-name">Statistics — inference</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:65%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W17–20</span><span class="topic-name">Differential equations</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:70%"></span></span><span class="weight-label">High</span></span></div>
-          <div class="topic-row"><span class="topic-week">W21–24</span><span class="topic-name">Exam-style practice papers</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:100%"></span></span><span class="weight-label">Exam</span></span></div>
-        </div>
       </div>
 
       <!-- YEAR 12 — METHODS -->
@@ -299,18 +218,8 @@
             <span class="tag tag-ca">Unit 3 &amp; 4</span>
             <h2 style="margin-top:12px;">Year 12 Methods</h2>
           </div>
-          <span style="font-family:'DM Mono',monospace;font-size:13px;color:var(--charcoal-soft);">Terms 1–4 · ATAR</span>
         </div>
         <p class="course-intro">The full ATAR Methods course — calculus, further probability, and exam-intensive preparation across both WACE papers.</p>
-        <div class="topic-table">
-          <div class="topic-row head-row"><span>Week</span><span>Topic</span><span>Exam weight</span></div>
-          <div class="topic-row"><span class="topic-week">W01–04</span><span class="topic-name">Further differentiation and applications</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:85%"></span></span><span class="weight-label">High</span></span></div>
-          <div class="topic-row"><span class="topic-week">W05–08</span><span class="topic-name">Integration</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:85%"></span></span><span class="weight-label">High</span></span></div>
-          <div class="topic-row"><span class="topic-week">W09–12</span><span class="topic-name">Discrete random variables</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:65%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W13–16</span><span class="topic-name">Parametric and related rates</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:60%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W17–20</span><span class="topic-name">Continuous random variables</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:70%"></span></span><span class="weight-label">High</span></span></div>
-          <div class="topic-row"><span class="topic-week">W21–24</span><span class="topic-name">Exam-style practice papers</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:100%"></span></span><span class="weight-label">Exam</span></span></div>
-        </div>
       </div>
 
       <!-- YEAR 12 — APPLICATIONS -->
@@ -320,18 +229,8 @@
             <span class="tag tag-cf">Unit 3 &amp; 4</span>
             <h2 style="margin-top:12px;">Year 12 Applications</h2>
           </div>
-          <span style="font-family:'DM Mono',monospace;font-size:13px;color:var(--charcoal-soft);">Terms 1–4 · ATAR</span>
         </div>
         <p class="course-intro">The applied ATAR pathway — bivariate data, networks, and financial mathematics, with exam preparation across both WACE papers.</p>
-        <div class="topic-table">
-          <div class="topic-row head-row"><span>Week</span><span>Topic</span><span>Exam weight</span></div>
-          <div class="topic-row"><span class="topic-week">W01–04</span><span class="topic-name">Bivariate data analysis</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:65%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W05–08</span><span class="topic-name">Growth and decay</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:60%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W09–12</span><span class="topic-name">Loans, investments and annuities</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:75%"></span></span><span class="weight-label">High</span></span></div>
-          <div class="topic-row"><span class="topic-week">W13–16</span><span class="topic-name">Networks and decision maths</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:60%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W17–20</span><span class="topic-name">Trigonometry — Earth geometry</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:55%"></span></span><span class="weight-label">Med</span></span></div>
-          <div class="topic-row"><span class="topic-week">W21–24</span><span class="topic-name">Exam-style practice papers</span><span class="weight-bar-wrap"><span class="weight-bar"><span class="weight-bar-fill" style="width:100%"></span></span><span class="weight-label">Exam</span></span></div>
-        </div>
       </div>
 
     </div>

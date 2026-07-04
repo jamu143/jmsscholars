@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
   .about-hero {
-    padding: 64px 0 88px;
+    padding-top: 64px;
+    padding-bottom: 88px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 72px;
@@ -45,30 +46,6 @@
     text-align: center;
     padding: 24px;
   }
-
-  .timeline {
-    display: grid;
-    gap: 0;
-  }
-
-  .timeline-item {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: 32px;
-    padding: 28px 0;
-    border-top: 1px solid var(--line);
-  }
-
-  .timeline-item:last-child { border-bottom: 1px solid var(--line); }
-
-  .timeline-year {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: var(--gold);
-  }
-
-  .timeline-item h3 { font-size: 18px; margin-bottom: 8px; }
-  .timeline-item p { font-size: 14px; }
 
   .credentials-grid {
     display: grid;
@@ -105,9 +82,8 @@
   }
 
   @media (max-width: 900px) {
-    .about-hero { grid-template-columns: 1fr; padding: 40px 0 56px; }
+    .about-hero { grid-template-columns: 1fr; padding-top: 40px; padding-bottom: 56px; }
     .credentials-grid { grid-template-columns: 1fr; }
-    .timeline-item { grid-template-columns: 90px 1fr; gap: 16px; }
     .philosophy-quote { font-size: 20px; }
   }
 </style>
@@ -137,8 +113,9 @@
 </header>
 
 <main>
-  <section class="about-hero">
-    <div class="wrap-inner">
+  <section>
+    <div class="wrap about-hero">
+    <div>
       <div class="eyebrow">About</div>
       <h1>Dr James Alex</h1>
       <p style="font-size:18px;margin:20px 0 24px;max-width:460px;">Mathematician, graph theorist, and educator with over a decade of experience teaching mathematics at university level across Perth and Bangalore.</p>
@@ -147,57 +124,12 @@
     <div class="about-photo-frame">
       <span>Portrait placeholder<br>— add a professional photo here</span>
     </div>
+    </div>
   </section>
 
   <section class="tight" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
     <div class="wrap">
       <p class="philosophy-quote">"Mathematics is learned the way it's practised — one careful step at a time, checked against real problems, not shortcuts."</p>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow centered">Background</div>
-        <h2>A path through mathematics.</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <span class="timeline-year">2009–2012</span>
-          <div>
-            <h3>Foundations</h3>
-            <p>BSc Mathematics (Loyola College), MSc Mathematics (Pondicherry University — Gold Medal), and MPhil Mathematics (Christ University).</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2012–2017</span>
-          <div>
-            <h3>Assistant Professor, PES University Bangalore</h3>
-            <p>Five years teaching undergraduate mathematics, building the classroom experience that now shapes JMS Scholars's approach.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2021–2025</span>
-          <div>
-            <h3>PhD Mathematics, Curtin University</h3>
-            <p>Doctoral research in structural graph theory — perfect graphs and their extensions — supervised by Prof Louis Caccetta and Prof Guanglu Zhou.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">2021–present</span>
-          <div>
-            <h3>Sessional Academic, Curtin University</h3>
-            <p>Continuing to teach and assess mathematics at Curtin, alongside research work at Curtin Health Sciences.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="timeline-year">Ongoing</span>
-          <div>
-            <h3>JMS Scholars</h3>
-            <p>Bringing the same structured, exam-bank-driven approach to WACE Year 11 and 12 Mathematics students in Perth.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -208,27 +140,27 @@
         <h2>At a glance.</h2>
       </div>
       <div class="credentials-grid">
-        <div class="credential-card">
+        <div class="credential-card tilt-ready">
           <div class="cred-label">Education</div>
           <p>PhD Mathematics, Curtin University (2025)</p>
         </div>
-        <div class="credential-card">
+        <div class="credential-card tilt-ready">
           <div class="cred-label">Teaching experience</div>
           <p>10+ years, Curtin University and PES University Bangalore</p>
         </div>
-        <div class="credential-card">
+        <div class="credential-card tilt-ready">
           <div class="cred-label">Research</div>
           <p>Published in structural graph theory, JIA and CCO journals</p>
         </div>
-        <div class="credential-card">
+        <div class="credential-card tilt-ready">
           <div class="cred-label">Memberships</div>
           <p>American Mathematical Society, AustMS, MAWA</p>
         </div>
-        <div class="credential-card">
+        <div class="credential-card tilt-ready">
           <div class="cred-label">Awards</div>
           <p>Curtinnovation 2021, Best Paper 2015, Gold Medal 2012</p>
         </div>
-        <div class="credential-card">
+        <div class="credential-card tilt-ready">
           <div class="cred-label">Languages</div>
           <p>English, Hindi, Malayalam, Tamil, French</p>
         </div>
