@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How it works — JMS Scholars</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta name="description" content="From first consult to exam day — how JMS Scholars tutoring works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .page-hero {
+    padding: 36px 0 48px;
+    text-align: center;
+  }
+
+  .page-hero .eyebrow { justify-content: center; }
+  .page-hero .eyebrow::before { display: none; }
+  .page-hero p { max-width: 560px; margin: 20px auto 0; font-size: 17px; }
+
+  .how-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    counter-reset: step;
+  }
+
+  .how-step {
+    padding: 32px 24px;
+    border-top: 2px solid var(--line);
+    position: relative;
+  }
+
+  .how-step .step-index {
+    font-family: 'DM Mono', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--gold-text);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .how-step h3 { font-size: 19px; margin-bottom: 10px; }
+  .how-step p { font-size: 14px; }
+
+  .detail-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    padding: 48px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .detail-block:first-of-type { border-top: none; }
+
+  .detail-block.reverse { direction: rtl; }
+  .detail-block.reverse > * { direction: ltr; }
+
+  .detail-num {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 60px;
+    color: var(--gold-text);
+    line-height: 1;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .detail-block h3 { font-size: 26px; margin-bottom: 14px; }
+  .detail-block p { font-size: 15px; line-height: 1.8; max-width: 460px; }
+
+  .detail-visual {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    aspect-ratio: 4/3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    overflow: hidden;
+  }
+
+  .detail-visual svg {
+    width: 90px;
+    height: 90px;
+    color: var(--gold-text);
+    opacity: 0.85;
+  }
+
+  /* Each step's icon gets a gentle, looping animation themed to its meaning */
+
+  /* 01 — chat bubble: a soft "pulse" like a message arriving */
+  .anim-consult { animation: consultPulse 3s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes consultPulse {
+    0%, 100% { transform: scale(1); opacity: 0.85; }
+    50%      { transform: scale(1.08); opacity: 1; }
+  }
+
+  /* 02 — checkmark: draws itself in, over and over */
+  .anim-place path {
+    stroke-dasharray: 60;
+    stroke-dashoffset: 0;
+    animation: placeDraw 3.4s ease-in-out infinite;
+  }
+  @keyframes placeDraw {
+    0%    { stroke-dashoffset: 60; }
+    35%   { stroke-dashoffset: 0; }
+    85%   { stroke-dashoffset: 0; }
+    100%  { stroke-dashoffset: 60; }
+  }
+
+  /* 03 — book: a gentle page-turn tilt */
+  .anim-sessions { animation: sessionsTilt 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes sessionsTilt {
+    0%, 100% { transform: rotateY(0deg) translateY(0); }
+    50%      { transform: rotateY(18deg) translateY(-4px); }
+  }
+
+  /* 04 — clock: the hand sweeps around */
+  .anim-clock-hand {
+    transform-box: fill-box;
+    transform-origin: 12px 12px;
+    animation: clockSweep 6s linear infinite;
+  }
+  @keyframes clockSweep {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim-consult, .anim-sessions, .anim-clock-hand { animation: none; }
+    .anim-place path { animation: none; stroke-dashoffset: 0; }
+  }
+
+  @media (max-width: 900px) {
+    .how-steps { grid-template-columns: 1fr 1fr; }
+    .detail-block { grid-template-columns: 1fr; direction: ltr !important; gap: 32px; padding: 48px 0; }
+    .detail-block.reverse { direction: ltr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="symbol-field" id="symbol-field" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="logo">
+        <object type="image/svg+xml" data="assets/logo-animated.svg" class="logo-img" aria-label="JMS Scholars logo"><img src="assets/logo.png" alt="JMS Scholars logo" class="logo-img"></object>
+        <span class="logo-text">
+          <span class="logo-mark"><img src="assets/jms-mark.svg" alt="jms" class="logo-jms-img"><span class="logo-dot">·</span><img src="assets/scholars-mark.svg" alt="scholars" class="logo-scholars-img"></span>
+          <span class="logo-tagline">Journey made simple</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="how-it-works.html" class="active">How it works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="portal/login.html" class="nav-cta">Student login</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">How it works</div>
+      <h1>From first consult<br>to exam day.</h1>
+      <p>A structured path, not an open-ended arrangement — here's exactly what happens at each stage.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="how-steps">
+        <div class="how-step">
+          <span class="step-index">01</span>
+          <h3>Free consult</h3>
+          <p>A short conversation to understand where the student is now and what the target ATAR looks like.</p>
+        </div>
+        <div class="how-step">
+          <span class="step-index">02</span>
+          <h3>Placement in the sequence</h3>
+          <p>Students join the 40-week programme at the right point in the syllabus for their current term.</p>
+        </div>
+        <div class="how-step">
+          <span class="step-index">03</span>
+          <h3>Weekly sessions and worksheets</h3>
+          <p>Structured sessions paired with take-home practice, all tracked in the student portal.</p>
+        </div>
+        <div class="how-step">
+          <span class="step-index">04</span>
+          <h3>Exam-ready by term's end</h3>
+          <p>Full practice papers and worked solutions in the weeks leading into WACE exams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+
+      <div class="detail-block">
+        <div>
+          <span class="detail-num">01</span>
+          <h3>Free consult</h3>
+          <p>Every student starts with a short, no-obligation conversation. We talk through current grades, target ATAR, and which course — Specialist, Methods, or Applications — actually fits. No assumptions made in advance.</p>
+        </div>
+        <div class="detail-visual">
+          <svg class="anim-consult" aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+      </div>
+
+      <div class="detail-block reverse">
+        <div>
+          <span class="detail-num">02</span>
+          <h3>Placement in the sequence</h3>
+          <p>Rather than starting from scratch, students join the sequenced curriculum at the point matching their current term — so no time is lost re-teaching material they've already covered in class.</p>
+        </div>
+        <div class="detail-visual">
+          <svg class="anim-place" aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+      </div>
+
+      <div class="detail-block">
+        <div>
+          <span class="detail-num">03</span>
+          <h3>Weekly sessions and worksheets</h3>
+          <p>Regular sessions are paired with take-home worksheets drawn from the WACE past-paper bank, tagged Calculator-free or Calculator-assumed to match the real exam structure. Progress is tracked week by week.</p>
+        </div>
+        <div class="detail-visual">
+          <svg class="anim-sessions" aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20V4a2 2 0 0 0-2-2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/></svg>
+        </div>
+      </div>
+
+      <div class="detail-block reverse">
+        <div>
+          <span class="detail-num">04</span>
+          <h3>Exam-ready by term's end</h3>
+          <p>In the weeks leading into WACE exams, sessions shift to full timed practice papers and worked solutions — building the exact fluency needed for both the Calculator-free and Calculator-assumed papers.</p>
+        </div>
+        <div class="detail-visual">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path class="anim-clock-hand" d="M12 6v6l4 2"/></svg>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band" style="background:var(--navy);color:var(--cream);text-align:center;padding:72px 48px;">
+        <h2 style="color:var(--cream);margin-bottom:16px;">Ready to get started?</h2>
+        <p style="color:rgba(247,245,240,0.7);max-width:480px;margin:0 auto 32px;">Book a free consult and find out exactly where your student sits in the sequence.</p>
+        <a href="contact.html" class="btn-primary" style="background:var(--gold);color:var(--navy);font-weight:500;">Book a free consult</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">JMS<span>·</span>Scholars</div>
+        <div class="footer-tagline">Journey made simple</div>
+        <p class="footer-desc">WACE Year 11–12 Mathematics tutoring in Perth, built on a decade of university teaching experience.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Students</h4>
+        <a href="portal/login.html">Student login</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:jmsscholars@gmail.com">jmsscholars@gmail.com</a>
+        <a href="tel:+61405156295">+61 405 156 295</a>
+        <a href="https://wa.me/61405156295?text=Hi%2C%20I%27d%20like%20to%20ask%20about%20JMS%20Scholars%20tutoring" target="_blank" rel="noopener">WhatsApp</a>
+        <span>Perth, Australia</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 JMS Scholars. All rights reserved.</span>
+      <span>Perth, Western Australia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

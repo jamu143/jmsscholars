@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses — JMS Scholars</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .page-hero {
+    padding: 36px 0 48px;
+    text-align: center;
+  }
+
+  .page-hero .eyebrow { justify-content: center; }
+  .page-hero .eyebrow::before { display: none; }
+  .page-hero p { max-width: 560px; margin: 20px auto 0; font-size: 17px; }
+
+  .selector-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 64px;
+  }
+
+  .selector-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--charcoal-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .year-pill button.active { background: var(--navy); color: var(--cream); }
+
+  .course-pick {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .course-pick button {
+    border: 1px solid var(--line);
+    background: var(--paper);
+    padding: 12px 24px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--charcoal-soft);
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .course-pick button.active {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .course-block { display: none; max-width: 720px; margin: 0 auto; }
+  .course-block.active { display: block; }
+
+  .unit-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--line);
+  }
+
+  .unit-head h2 { font-size: 30px; }
+
+  .course-intro { font-size: 16px; line-height: 1.8; }
+
+  .sample-note {
+    background: var(--sage-bg);
+    border: 1px solid var(--sage);
+    padding: 20px 24px;
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    color: #2f3a29;
+  }
+
+  .sample-note svg { width: 20px; height: 20px; color: var(--sage); flex-shrink: 0; }
+  .sample-note a { color: #1f2a19; font-weight: 500; text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .unit-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .course-pick { gap: 8px; }
+    .course-pick button { padding: 10px 16px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="symbol-field" id="symbol-field" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="logo">
+        <object type="image/svg+xml" data="assets/logo-animated.svg" class="logo-img" aria-label="JMS Scholars logo"><img src="assets/logo.png" alt="JMS Scholars logo" class="logo-img"></object>
+        <span class="logo-text">
+          <span class="logo-mark"><img src="assets/jms-mark.svg" alt="jms" class="logo-jms-img"><span class="logo-dot">·</span><img src="assets/scholars-mark.svg" alt="scholars" class="logo-scholars-img"></span>
+          <span class="logo-tagline">Journey made simple</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html" class="active">Courses</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="portal/login.html" class="nav-cta">Student login</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">Courses</div>
+      <h1>WACE Mathematics,<br>Year 11 and 12.</h1>
+      <p>Specialist, Methods, and Applications — sequenced curricula for both years, built from WACE past-paper bank covering.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+
+      <div class="selector-row">
+        <div>
+          <div class="selector-label" style="text-align:center;">Year level</div>
+          <div class="toggle-pill year-pill" id="year-pill">
+            <button class="active" data-year="11">Year 11</button>
+            <button data-year="12">Year 12</button>
+          </div>
+        </div>
+        <div>
+          <div class="selector-label" style="text-align:center;">Course</div>
+          <div class="course-pick" id="course-pick">
+            <button class="active" data-course="specialist">Specialist</button>
+            <button data-course="methods">Methods</button>
+            <button data-course="applications">Applications</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- YEAR 11 — SPECIALIST -->
+      <div class="course-block active" data-year="11" data-course="specialist">
+        <div class="unit-head">
+          <div>
+            <span class="tag tag-ca">Unit 1 &amp; 2</span>
+            <h2 style="margin-top:12px;">Year 11 Specialist</h2>
+          </div>
+        </div>
+        <p class="course-intro">The extension course for students pursuing Specialist through to Year 12. Deeper treatment of algebra, functions, and geometry alongside the Methods content, building the reasoning needed for Unit 3 &amp; 4 Specialist.</p>
+        <div class="sample-note">
+          <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+          <span>Want to see teaching quality before enrolling? A free sample Week 1 worksheet is available — <a href="contact.html">request it here</a>.</span>
+        </div>
+      </div>
+
+      <!-- YEAR 11 — METHODS -->
+      <div class="course-block" data-year="11" data-course="methods">
+        <div class="unit-head">
+          <div>
+            <span class="tag tag-cf">Unit 1 &amp; 2</span>
+            <h2 style="margin-top:12px;">Year 11 Methods</h2>
+          </div>
+        </div>
+        <p class="course-intro">Foundations for the ATAR Methods pathway — functions, trigonometry, counting and probability, and introductory calculus. Builds the base the Year 12 course depends on.</p>
+        <div class="sample-note">
+          <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+          <span>Want to see teaching quality before enrolling? A free sample Week 1 worksheet is available — <a href="contact.html">request it here</a>.</span>
+        </div>
+      </div>
+
+      <!-- YEAR 11 — APPLICATIONS -->
+      <div class="course-block" data-year="11" data-course="applications">
+        <div class="unit-head">
+          <div>
+            <span class="tag tag-cf">Unit 1 &amp; 2</span>
+            <h2 style="margin-top:12px;">Year 11 Applications</h2>
+          </div>
+        </div>
+        <p class="course-intro">A practical, applied mathematics course for students not pursuing Methods or Specialist — consumer finance, statistics, and everyday problem-solving.</p>
+        <div class="sample-note">
+          <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+          <span>Want to see teaching quality before enrolling? A free sample Week 1 worksheet is available — <a href="contact.html">request it here</a>.</span>
+        </div>
+      </div>
+
+      <!-- YEAR 12 — SPECIALIST -->
+      <div class="course-block" data-year="12" data-course="specialist">
+        <div class="unit-head">
+          <div>
+            <span class="tag tag-ca">Unit 3 &amp; 4</span>
+            <h2 style="margin-top:12px;">Year 12 Specialist</h2>
+          </div>
+        </div>
+        <p class="course-intro">The most demanding WACE mathematics course, for students aiming at mathematics-intensive university degrees. Complex numbers, vectors, and advanced calculus, taken alongside Methods.</p>
+        <div class="sample-note">
+          <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+          <span>Want to see teaching quality before enrolling? A free sample Week 1 worksheet is available — <a href="contact.html">request it here</a>.</span>
+        </div>
+      </div>
+
+      <!-- YEAR 12 — METHODS -->
+      <div class="course-block" data-year="12" data-course="methods">
+        <div class="unit-head">
+          <div>
+            <span class="tag tag-ca">Unit 3 &amp; 4</span>
+            <h2 style="margin-top:12px;">Year 12 Methods</h2>
+          </div>
+        </div>
+        <p class="course-intro">The full ATAR Methods course — calculus, further probability, and exam-intensive preparation across both WACE papers.</p>
+        <div class="sample-note">
+          <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+          <span>Want to see teaching quality before enrolling? A free sample Week 1 worksheet is available — <a href="contact.html">request it here</a>.</span>
+        </div>
+      </div>
+
+      <!-- YEAR 12 — APPLICATIONS -->
+      <div class="course-block" data-year="12" data-course="applications">
+        <div class="unit-head">
+          <div>
+            <span class="tag tag-cf">Unit 3 &amp; 4</span>
+            <h2 style="margin-top:12px;">Year 12 Applications</h2>
+          </div>
+        </div>
+        <p class="course-intro">The applied ATAR pathway — bivariate data, networks, and financial mathematics, with exam preparation across both WACE papers.</p>
+        <div class="sample-note">
+          <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+          <span>Want to see teaching quality before enrolling? A free sample Week 1 worksheet is available — <a href="contact.html">request it here</a>.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band" style="background:var(--navy);color:var(--cream);text-align:center;padding:72px 48px;">
+        <h2 style="color:var(--cream);margin-bottom:16px;">Ready to see where you fit in the sequence?</h2>
+        <p style="color:rgba(247,245,240,0.7);max-width:480px;margin:0 auto 32px;">Book a free consult and get placed at the right point in the curriculum.</p>
+        <a href="contact.html" class="btn-primary" style="background:var(--gold);color:var(--navy);font-weight:500;">Book a free consult</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">JMS<span>·</span>Scholars</div>
+        <div class="footer-tagline">Journey made simple</div>
+        <p class="footer-desc">WACE Year 11–12 Mathematics tutoring in Perth, built on a decade of university teaching experience.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Students</h4>
+        <a href="portal/login.html">Student login</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:jmsscholars@gmail.com">jmsscholars@gmail.com</a>
+        <a href="tel:+61405156295">+61 405 156 295</a>
+        <a href="https://wa.me/61405156295?text=Hi%2C%20I%27d%20like%20to%20ask%20about%20JMS%20Scholars%20tutoring" target="_blank" rel="noopener">WhatsApp</a>
+        <span>Perth, Australia</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 JMS Scholars. All rights reserved.</span>
+      <span>Perth, Western Australia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

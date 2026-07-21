@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student login — JMS Scholars</title>
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; position: relative; overflow: hidden; }
+
+  .login-box {
+    width: 380px;
+    padding: 40px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .login-logo-img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    pointer-events: none;
+  }
+
+  .login-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: var(--navy);
+    margin-bottom: 4px;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+  }
+
+  .login-jms-img {
+    height: 1.15em;
+    width: auto;
+    display: inline-block;
+    transform: translateY(0.16em);
+    margin-right: 0.04em;
+  }
+
+  .login-scholars-img {
+    height: 1.15em;
+    width: auto;
+    display: inline-block;
+    transform: translateY(0.16em);
+    margin-left: 0.04em;
+  }
+
+  .login-logo span { color: var(--gold); }
+
+  .login-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--charcoal-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .login-note {
+    font-size: 14px;
+    color: var(--charcoal-soft);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+  <div class="symbol-field" id="symbol-field" aria-hidden="true"></div>
+
+  <div class="login-box">
+    <object type="image/svg+xml" data="../assets/logo-animated.svg" class="login-logo-img" aria-label="JMS Scholars logo"><img src="../assets/logo.png" alt="JMS Scholars logo" class="login-logo-img"></object>
+    <div class="login-logo"><img src="../assets/jms-mark.svg" alt="jms" class="login-jms-img"><span>·</span><img src="../assets/scholars-mark.svg" alt="scholars" class="login-scholars-img"></div>
+    <div class="login-tagline">Journey made simple</div>
+    <p class="login-note">The student portal — login, materials, and discussion boards — is under construction. This page is a placeholder while we design the sign-in flow together.</p>
+    <a href="../index.html" class="back-link">Back to homepage</a>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

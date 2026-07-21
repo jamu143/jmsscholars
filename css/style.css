@@ -1,0 +1,825 @@
+/* ===== JMS Tutoring — shared styles ===== */
+
+:root {
+  --navy: #0F1E3D;
+  --navy-light: #1B2E52;
+  --gold: #C9A24B;
+  --gold-light: #E4C878;
+  --gold-text: #8F6820;
+  --cream: #F7F5F0;
+  --paper: #FCFBF8;
+  --charcoal: #2B2B28;
+  --charcoal-soft: #5C5A53;
+  --sage: #7A8B6F;
+  --sage-bg: #EAF0E6;
+  --rust: #B5533C;
+  --rust-bg: #F5E7E2;
+  --line: #DEDACE;
+  --cf-bg: #EAF3DE;
+  --cf-text: #27500A;
+  --ca-bg: #E6F1FB;
+  --ca-text: #0C447C;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a { color: inherit; }
+
+img { max-width: 100%; display: block; }
+
+.wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 64px;
+  padding-right: 64px;
+}
+
+/* ---------- Header ---------- */
+
+header {
+  position: sticky;
+  top: 0;
+  background: var(--cream);
+  z-index: 100;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+header.scrolled { border-bottom-color: var(--line); }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 26px 0;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* A single light band sweeps across the whole wordmark — logo mark, jms, and
+   scholars — as one continuous motion. mix-blend-mode:soft-light means it only
+   lifts the dark navy artwork it passes over, leaving the cream background alone. */
+.logo::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 70%;
+  pointer-events: none;
+  background: linear-gradient(105deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,240,200,0.15) 38%,
+    rgba(255,245,220,0.85) 50%,
+    rgba(255,240,200,0.15) 62%,
+    rgba(255,255,255,0) 100%);
+  mix-blend-mode: soft-light;
+  transform: translateX(-160%);
+  animation: logoShine 4.8s ease-in-out infinite;
+}
+
+@keyframes logoShine {
+  0%   { transform: translateX(-160%); }
+  55%  { transform: translateX(260%); }
+  100% { transform: translateX(260%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo::after { animation: none; opacity: 0; }
+}
+
+.logo-img {
+  height: 52px;
+  width: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-mark {
+  font-size: 30px;
+  color: var(--navy);
+  line-height: 1;
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.logo-dot {
+  color: var(--gold);
+  font-family: 'DM Serif Display', serif;
+  font-size: 30px;
+}
+
+/* The actual "jms" and "scholars" lettermark artwork lifted from / matched to
+   the logo. A single light shine sweeps across the whole wordmark (see .logo::after). */
+.logo-jms-img {
+  height: 1.15em;
+  width: auto;
+  display: inline-block;
+  transform: translateY(0.16em);
+  margin-right: 0.04em;
+}
+
+.logo-scholars-img {
+  height: 1.15em;
+  width: auto;
+  display: inline-block;
+  transform: translateY(0.16em);
+  margin-left: 0.04em;
+}
+
+.logo-tagline {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--charcoal-soft);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 6px;
+  text-align: center;
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  gap: 38px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--charcoal-soft);
+  font-size: 15px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover, .nav-links a.active { color: var(--navy); }
+
+.nav-cta {
+  background: var(--navy);
+  color: var(--gold) !important;
+  padding: 11px 26px;
+  border-radius: 2px;
+  font-size: 14px !important;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.nav-cta:hover { background: var(--navy-light); color: var(--gold-light) !important; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle svg { width: 24px; height: 24px; color: var(--navy); }
+
+/* ---------- Typography ---------- */
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gold-text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.eyebrow.centered { justify-content: center; }
+.eyebrow.centered::before { display: none; }
+
+h1, h2, h3 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 52px; line-height: 1.12; }
+h2 { font-size: 36px; line-height: 1.2; }
+h3 { font-size: 22px; line-height: 1.3; }
+
+em { font-style: italic; color: var(--gold-text); }
+
+p { color: var(--charcoal-soft); }
+
+.section-head {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 64px;
+}
+
+.section-head p { margin-top: 16px; font-size: 17px; }
+
+/* ---------- Buttons ---------- */
+
+.btn-primary {
+  background: var(--navy);
+  color: var(--cream);
+  border: none;
+  padding: 16px 32px;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary:hover { background: var(--navy-light); }
+
+.btn-ghost {
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  padding: 15px 28px;
+  border-radius: 2px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn-ghost:hover { border-color: var(--navy); background: var(--paper); }
+
+/* ---------- Tags / pills ---------- */
+
+.tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+  display: inline-block;
+}
+
+.tag-cf { background: var(--cf-bg); color: var(--cf-text); }
+.tag-ca { background: var(--ca-bg); color: var(--ca-text); }
+
+.toggle-pill {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 3px;
+  background: var(--paper);
+}
+
+.toggle-pill button {
+  border: none;
+  background: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--charcoal-soft);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-pill button.active.cf { background: var(--cf-bg); color: var(--cf-text); }
+.toggle-pill button.active.ca { background: var(--ca-bg); color: var(--ca-text); }
+
+/* ---------- Trust strip ---------- */
+
+.trust-strip {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 28px 0;
+}
+
+.trust-row {
+  display: flex;
+  justify-content: center;
+  gap: 56px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--charcoal-soft);
+  font-weight: 500;
+}
+
+.trust-item svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+
+/* ---------- Cards ---------- */
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 32px;
+  border-radius: 2px;
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.card h3 { margin-bottom: 12px; }
+.card p { font-size: 15px; }
+
+/* ---------- Paper panel (signature element) ---------- */
+
+.paper-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 40px;
+  position: relative;
+}
+
+.paper-panel::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--line);
+  transform: translate(8px, 8px);
+  z-index: -1;
+}
+
+.paper-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.paper-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--charcoal-soft);
+  letter-spacing: 0.04em;
+}
+
+.paper-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+
+.paper-row .row-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--gold-text);
+  min-width: 30px;
+}
+
+.paper-row .row-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  color: var(--charcoal-soft);
+  flex: 1;
+}
+
+.row-lock {
+  width: 15px;
+  height: 15px;
+  color: var(--charcoal-soft);
+  flex-shrink: 0;
+}
+
+.unlock-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  color: var(--navy);
+}
+
+.unlock-row svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+/* ---------- Footer ---------- */
+
+footer {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 64px 0 32px;
+  margin-top: 120px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+}
+
+.footer-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.footer-logo span { color: var(--gold); }
+
+.footer-tagline {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(247,245,240,0.65);
+  margin-bottom: 20px;
+}
+
+.footer-desc { font-size: 14px; color: rgba(247,245,240,0.72); max-width: 260px; }
+
+.footer-col h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(247,245,240,0.62);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+}
+
+.footer-col a {
+  display: block;
+  text-decoration: none;
+  color: rgba(247,245,240,0.85);
+  font-size: 15px;
+  margin-bottom: 12px;
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover { color: var(--gold-light); }
+
+.footer-col span {
+  display: block;
+  color: rgba(247,245,240,0.85);
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(247,245,240,0.15);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: rgba(247,245,240,0.6);
+}
+
+/* ---------- Motion ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-init {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  /* Scrolling down: content approaches from below, floats up into place */
+  .reveal-init.reveal-from-down {
+    transform: translateY(18px);
+  }
+
+  /* Scrolling up: content approaches from above, floats down into place */
+  .reveal-init.reveal-from-up {
+    transform: translateY(-18px);
+  }
+
+  .reveal-init.reveal-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Tilt-ready cards: scroll-reveal controls opacity only.
+     The JS tilt handler owns `transform` exclusively for these elements,
+     so the two systems never fight over the same CSS property. */
+  .reveal-init.tilt-ready.reveal-from-down,
+  .reveal-init.tilt-ready.reveal-from-up {
+    transform: none;
+  }
+
+  .reveal-init.tilt-ready.reveal-in {
+    transform: none;
+  }
+
+  .card, .credential-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .card:hover:not(.tilt-ready), .credential-card:hover:not(.tilt-ready) {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 28px rgba(15,30,61,0.08);
+  }
+
+  .btn-primary, .btn-ghost, .nav-cta, .course-pick button, .toggle-pill button {
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .btn-primary:active, .nav-cta:active { transform: scale(0.97); }
+
+  .logo-dot {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .logo:hover .logo-dot { transform: rotate(180deg); }
+
+  /* ---------- Magnetic hover: consumes the --magnetic-x/-y custom
+     properties set by JS every frame. No CSS transition here — the JS
+     lerp loop already provides the easing, so a competing CSS transition
+     would fight it and reintroduce jitter. */
+  .nav-links a,
+  footer .footer-col a, .sample-note a, .back-link,
+  .btn-primary, .btn-ghost, .nav-cta,
+  .toggle-pill button, .course-pick button,
+  .logo {
+    --magnetic-x: 0px;
+    --magnetic-y: 0px;
+    transform: translate(var(--magnetic-x), var(--magnetic-y));
+  }
+
+  .paper-row {
+    transition: background 0.2s ease, transform 0.2s ease;
+    opacity: 0;
+    animation: rowIn 0.5s ease forwards;
+  }
+
+  .paper-row:hover {
+    background: #F2EFE7;
+    transform: translateX(2px);
+  }
+
+  .trust-item svg {
+    transition: transform 0.3s ease;
+  }
+
+  .trust-item:hover svg { transform: scale(1.15) rotate(-6deg); }
+
+  /* Per-row stagger delay is set by JS (main.js) based on each row's actual
+     position among .paper-row siblings, so markup changes can't break the order. */
+
+  @keyframes rowIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init { opacity: 1; transform: none; }
+}
+
+/* ---------- Ambient symbol background (whole page) ---------- */
+
+.symbol-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.symbol-outer { position: absolute; }
+
+.symbol-inner {
+  font-family: 'DM Serif Display', serif;
+  color: var(--navy);
+  opacity: 0.09;
+  user-select: none;
+  display: block;
+  white-space: nowrap;
+}
+
+.symbol-inner.equation {
+  font-family: 'DM Mono', monospace;
+  font-style: italic;
+}
+
+.symbol-inner.graph-shape {
+  color: var(--navy);
+  opacity: 0.09;
+  line-height: 0;
+}
+
+.symbol-inner.graph-shape svg {
+  display: block;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-100px); }
+}
+
+.symbol-inner.floating {
+  animation: floatUp linear infinite;
+  animation-duration: var(--dur, 18s);
+}
+
+/* Every direct section needs to sit above the fixed background */
+/* main and footer sit above the fixed background; header keeps its own
+   sticky positioning (declared above) so it stays frozen while scrolling */
+main, footer { position: relative; z-index: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .symbol-inner.floating { animation: none; }
+  .symbol-inner .anim-draw { animation: none; stroke-dashoffset: 0; }
+  .symbol-inner .anim-bar { animation: none; }
+  .symbol-inner .anim-trace-dot { animation: none; }
+  .symbol-inner.eq-rearrange .eq-form { animation: none; opacity: 0; }
+  .symbol-inner.eq-rearrange .eq-form:first-child { opacity: 1; }
+}
+
+/* ---------- Animated background elements ---------- */
+
+/* Option 1: curves/shapes draw themselves via stroke-dashoffset */
+.symbol-inner .anim-draw {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  animation: drawLoop 6s ease-in-out infinite;
+}
+@keyframes drawLoop {
+  0%   { stroke-dashoffset: 240; }
+  40%  { stroke-dashoffset: 0; }
+  70%  { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -240; }
+}
+
+/* Option 2: bars grow up and down */
+.symbol-inner .anim-bar {
+  transform-origin: bottom;
+  transform-box: fill-box;
+  animation: barGrow 4s ease-in-out infinite;
+}
+.symbol-inner .anim-bar:nth-of-type(2) { animation-delay: 0.3s; }
+.symbol-inner .anim-bar:nth-of-type(3) { animation-delay: 0.6s; }
+@keyframes barGrow {
+  0%, 100% { transform: scaleY(0.35); }
+  50%      { transform: scaleY(1); }
+}
+
+/* Option 2: point traces along a path (used on the axes shape) */
+.symbol-inner .anim-trace-dot {
+  transform-box: fill-box;
+  animation: traceDot 5s ease-in-out infinite;
+}
+@keyframes traceDot {
+  0%   { transform: translate(0, 8px); }
+  50%  { transform: translate(-8px, 0); }
+  100% { transform: translate(0, 8px); }
+}
+
+/* Option 3A: equations cycle through equivalent forms */
+.symbol-inner.eq-rearrange {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+.symbol-inner.eq-rearrange .eq-form {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  opacity: 0;
+  animation: eqCycle 7.8s ease-in-out infinite;
+}
+.symbol-inner.eq-rearrange .eq-form:first-child {
+  position: relative;
+}
+@keyframes eqCycle {
+  0%   { opacity: 0; transform: translateY(4px); }
+  6%   { opacity: 1; transform: translateY(0); }
+  27%  { opacity: 1; transform: translateY(0); }
+  33%  { opacity: 0; transform: translateY(-4px); }
+  100% { opacity: 0; }
+}
+
+/* ---------- Card tilt (pointer devices only) ---------- */
+
+@media (hover: hover) and (pointer: fine) {
+  .tilt-ready {
+    transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .tilt-ready:hover {
+    border-color: var(--gold);
+    box-shadow: 0 16px 32px rgba(15,30,61,0.10);
+  }
+}
+
+
+
+@media (max-width: 900px) {
+  .wrap { padding-left: 24px; padding-right: 24px; }
+  h1 { font-size: 36px; }
+  h2 { font-size: 28px; }
+
+  nav { position: relative; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    padding: 8px 24px 20px;
+    box-shadow: 0 12px 24px rgba(15,30,61,0.08);
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-links a {
+    width: 100%;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-links a:last-of-type { border-bottom: none; }
+
+  .nav-links .nav-cta {
+    margin-top: 12px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav-toggle { display: block; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
+
+  .logo-img { height: 44px; width: 44px; }
+  .logo-mark { font-size: 24px; }
+  .logo-tagline { font-size: 11px; }
+}
+
+@media (max-width: 440px) {
+  /* On very narrow phones, show just the logo image + mark, drop the tagline
+     to keep the header from wrapping or crowding the menu button */
+  .logo-tagline { display: none; }
+  .logo-mark { font-size: 21px; }
+  .logo-img { height: 40px; width: 40px; }
+}

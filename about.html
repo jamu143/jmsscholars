@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — JMS Scholars</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .about-hero {
+    padding-top: 36px;
+    padding-bottom: 88px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .post-nominals {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--gold-text);
+    margin-top: 10px;
+  }
+
+  .about-photo-frame {
+    background: var(--cream);
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 7%;
+  }
+
+  .about-portrait-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .credential-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 28px;
+  }
+
+  .credential-card .cred-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--charcoal-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  .credential-card p { font-size: 15px; color: var(--charcoal); font-weight: 500; margin: 0; }
+
+  .philosophy-quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--navy);
+    line-height: 1.5;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .about-hero { grid-template-columns: 1fr; padding-top: 40px; padding-bottom: 56px; }
+    .credentials-grid { grid-template-columns: 1fr; }
+    .philosophy-quote { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="symbol-field" id="symbol-field" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="logo">
+        <object type="image/svg+xml" data="assets/logo-animated.svg" class="logo-img" aria-label="JMS Scholars logo"><img src="assets/logo.png" alt="JMS Scholars logo" class="logo-img"></object>
+        <span class="logo-text">
+          <span class="logo-mark"><img src="assets/jms-mark.svg" alt="jms" class="logo-jms-img"><span class="logo-dot">·</span><img src="assets/scholars-mark.svg" alt="scholars" class="logo-scholars-img"></span>
+          <span class="logo-tagline">Journey made simple</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html" class="active">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+        <a href="portal/login.html" class="nav-cta">Student login</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap about-hero">
+    <div>
+      <div class="eyebrow">About</div>
+      <h1>Dr James Alex<span class="post-nominals">BSc, MSc, MPhil, PhD</span></h1>
+      <p style="font-size:18px;margin:20px 0 24px;max-width:460px;">Mathematician, graph theorist, and educator with over a decade of experience teaching mathematics at university level across Perth and Bangalore.</p>
+      <p style="font-size:15px;max-width:460px;">James holds a PhD in Mathematics from Curtin University, where his research sits in structural graph theory. Alongside his academic and research work, he has spent years developing exam-focused mathematics curricula for WACE students, drawing on the same rigour he brings to peer-reviewed research.</p>
+    </div>
+    <div class="about-photo-frame">
+      <object type="image/svg+xml" data="assets/logo-animated.svg" class="about-portrait-svg" aria-label="JMS Scholars animated logo"><img src="assets/logo.png" alt="JMS Scholars logo" class="about-portrait-svg"></object>
+    </div>
+    </div>
+  </section>
+
+  <section class="tight" style="background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <p class="philosophy-quote">"Mathematics is learned the way it's practised — one careful step at a time, checked against real problems, not shortcuts."</p>
+      <p style="max-width:640px;margin:24px auto 0;text-align:center;color:var(--charcoal-soft);font-size:16px;line-height:1.7;">The gap between knowing the material and performing under exam conditions is where marks are won or lost. That gap is what JMS Scholars is built to close — structured WACE tutoring drawn from a real past-paper bank, not generic worksheets.</p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow centered">Credentials</div>
+        <h2>At a glance.</h2>
+      </div>
+      <div class="credentials-grid">
+        <div class="credential-card tilt-ready">
+          <div class="cred-label">Education</div>
+          <p>PhD Mathematics, Curtin University (2025)</p>
+        </div>
+        <div class="credential-card tilt-ready">
+          <div class="cred-label">Teaching experience</div>
+          <p>10+ years, Curtin University and PES University Bangalore</p>
+        </div>
+        <div class="credential-card tilt-ready">
+          <div class="cred-label">Research</div>
+          <p>Published in structural graph theory, JIA and CCO journals</p>
+        </div>
+        <div class="credential-card tilt-ready">
+          <div class="cred-label">Memberships</div>
+          <p>American Mathematical Society, AustMS, MAWA</p>
+        </div>
+        <div class="credential-card tilt-ready">
+          <div class="cred-label">Awards</div>
+          <p>Curtinnovation 2021, Best Paper 2015, Gold Medal 2012</p>
+        </div>
+        <div class="credential-card tilt-ready">
+          <div class="cred-label">Languages</div>
+          <p>English, Hindi, Malayalam, Tamil, French</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="cta-band" style="background:var(--navy);color:var(--cream);text-align:center;padding:72px 48px;">
+        <h2 style="color:var(--cream);margin-bottom:16px;">Journey made simple.</h2>
+        <p style="color:rgba(247,245,240,0.7);max-width:480px;margin:0 auto 32px;">Book a free consult to see how the programme fits your student.</p>
+        <a href="contact.html" class="btn-primary" style="background:var(--gold);color:var(--navy);font-weight:500;">Book a free consult</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">JMS<span>·</span>Scholars</div>
+        <div class="footer-tagline">Journey made simple</div>
+        <p class="footer-desc">WACE Year 11–12 Mathematics tutoring in Perth, built on a decade of university teaching experience.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Students</h4>
+        <a href="portal/login.html">Student login</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:jmsscholars@gmail.com">jmsscholars@gmail.com</a>
+        <a href="tel:+61405156295">+61 405 156 295</a>
+        <a href="https://wa.me/61405156295?text=Hi%2C%20I%27d%20like%20to%20ask%20about%20JMS%20Scholars%20tutoring" target="_blank" rel="noopener">WhatsApp</a>
+        <span>Perth, Australia</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 JMS Scholars. All rights reserved.</span>
+      <span>Perth, Western Australia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

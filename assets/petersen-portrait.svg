@@ -1,0 +1,107 @@
+<svg viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Petersen graph rendered in navy, gold and cream, drawing itself in">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#16294F"/>
+      <stop offset="100%" stop-color="#0F1E3D"/>
+    </radialGradient>
+  </defs>
+
+  <style>
+    /* Defaults below are the FINAL state; keyframes animate from hidden.
+       With reduced motion, animations are removed and the finished image shows. */
+    @keyframes drawOuter  { from { stroke-dashoffset: 1800; } to { stroke-dashoffset: 0; } }
+    @keyframes drawSpoke  { from { stroke-dashoffset: 150;  } to { stroke-dashoffset: 0; } }
+    @keyframes drawChord  { from { stroke-dashoffset: 320;  } to { stroke-dashoffset: 0; } }
+    @keyframes pop        { from { transform: scale(0); } 70% { transform: scale(1.25); } to { transform: scale(1); } }
+    @keyframes fadeIn     { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes breathe    { 0%,100% { fill-opacity: 0.10; } 50% { fill-opacity: 0.20; } }
+    @keyframes slowSpin   { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    .rings   { animation: fadeIn 1.2s ease-out both; }
+    .spin    { transform-box: fill-box; transform-origin: center; animation: slowSpin 120s linear infinite; }
+
+    .outer   { stroke-dasharray: 1800 1800; animation: drawOuter 2.2s ease-in-out 0.4s both; }
+    .spoke   { stroke-dasharray: 150 150;   animation: drawSpoke 0.7s ease-out both; }
+    .chord   { stroke-dasharray: 320 320;   animation: drawChord 0.9s ease-in-out both; }
+
+    .s1 { animation-delay: 2.4s; } .s2 { animation-delay: 2.55s; } .s3 { animation-delay: 2.7s; }
+    .s4 { animation-delay: 2.85s; } .s5 { animation-delay: 3.0s; }
+    .c1 { animation-delay: 3.5s; } .c2 { animation-delay: 3.8s; } .c3 { animation-delay: 4.1s; }
+    .c4 { animation-delay: 4.4s; } .c5 { animation-delay: 4.7s; }
+
+    .node    { transform-box: fill-box; transform-origin: center; animation: pop 0.5s cubic-bezier(.34,1.56,.64,1) both; }
+    .n1 { animation-delay: 0.6s; }  .n2 { animation-delay: 1.0s; }  .n3 { animation-delay: 1.4s; }
+    .n4 { animation-delay: 1.8s; }  .n5 { animation-delay: 2.2s; }
+    .n6 { animation-delay: 2.5s; }  .n7 { animation-delay: 2.65s; } .n8 { animation-delay: 2.8s; }
+    .n9 { animation-delay: 2.95s; } .n10 { animation-delay: 3.1s; }
+
+    .halos   { animation: fadeIn 1s ease-out 3.2s both, breathe 6s ease-in-out 5.6s infinite; }
+    .caption { animation: fadeIn 1.6s ease-out 5.4s both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; }
+      .outer, .spoke, .chord { stroke-dasharray: none; }
+    }
+  </style>
+
+  <rect width="900" height="900" fill="url(#bg)"/>
+
+  <!-- faint compass construction circles -->
+  <g class="rings" fill="none" stroke="#F7F5F0" stroke-opacity="0.06" stroke-width="1">
+    <circle cx="450" cy="460" r="300"/>
+    <circle cx="450" cy="460" r="160"/>
+    <circle class="spin" cx="450" cy="460" r="380" stroke-dasharray="4 10"/>
+  </g>
+
+  <!-- edges -->
+  <g stroke="#C9A24B" stroke-width="3" stroke-linecap="round" fill="none">
+    <!-- outer 5-cycle -->
+    <path class="outer" d="M450 160 L735.3 367.3 L626.3 702.7 L273.7 702.7 L164.7 367.3 Z" stroke-opacity="0.9"/>
+    <!-- spokes -->
+    <g stroke-width="2.4" stroke-opacity="0.75">
+      <line class="spoke s1" x1="450" y1="160" x2="450" y2="300"/>
+      <line class="spoke s2" x1="735.3" y1="367.3" x2="602.2" y2="410.6"/>
+      <line class="spoke s3" x1="626.3" y1="702.7" x2="544.0" y2="589.4"/>
+      <line class="spoke s4" x1="273.7" y1="702.7" x2="356.0" y2="589.4"/>
+      <line class="spoke s5" x1="164.7" y1="367.3" x2="297.8" y2="410.6"/>
+    </g>
+    <!-- inner pentagram -->
+    <g stroke-width="2.4" stroke-opacity="0.75">
+      <line class="chord c1" x1="450" y1="300" x2="544.0" y2="589.4"/>
+      <line class="chord c2" x1="544.0" y1="589.4" x2="297.8" y2="410.6"/>
+      <line class="chord c3" x1="297.8" y1="410.6" x2="602.2" y2="410.6"/>
+      <line class="chord c4" x1="602.2" y1="410.6" x2="356.0" y2="589.4"/>
+      <line class="chord c5" x1="356.0" y1="589.4" x2="450" y2="300"/>
+    </g>
+  </g>
+
+  <!-- breathing halos -->
+  <g class="halos" fill="#C9A24B" fill-opacity="0.12">
+    <circle cx="450" cy="160" r="26"/><circle cx="735.3" cy="367.3" r="26"/>
+    <circle cx="626.3" cy="702.7" r="26"/><circle cx="273.7" cy="702.7" r="26"/>
+    <circle cx="164.7" cy="367.3" r="26"/>
+    <circle cx="450" cy="300" r="22"/><circle cx="602.2" cy="410.6" r="22"/>
+    <circle cx="544.0" cy="589.4" r="22"/><circle cx="356.0" cy="589.4" r="22"/>
+    <circle cx="297.8" cy="410.6" r="22"/>
+  </g>
+
+  <!-- vertices: proper 3-colouring, chi(Petersen) = 3 -->
+  <g stroke="#0F1E3D" stroke-width="3">
+    <!-- outer vertices: 1,2,1,2,3 -->
+    <circle class="node n1" cx="450"   cy="160"   r="15" fill="#F7F5F0"/>
+    <circle class="node n2" cx="735.3" cy="367.3" r="15" fill="#C9A24B"/>
+    <circle class="node n3" cx="626.3" cy="702.7" r="15" fill="#F7F5F0"/>
+    <circle class="node n4" cx="273.7" cy="702.7" r="15" fill="#C9A24B"/>
+    <circle class="node n5" cx="164.7" cy="367.3" r="15" fill="#7E93BE"/>
+    <!-- inner vertices: 2,3,3,1,1 -->
+    <circle class="node n6"  cx="450"   cy="300"   r="12" fill="#C9A24B"/>
+    <circle class="node n7"  cx="602.2" cy="410.6" r="12" fill="#7E93BE"/>
+    <circle class="node n8"  cx="544.0" cy="589.4" r="12" fill="#7E93BE"/>
+    <circle class="node n9"  cx="356.0" cy="589.4" r="12" fill="#F7F5F0"/>
+    <circle class="node n10" cx="297.8" cy="410.6" r="12" fill="#F7F5F0"/>
+  </g>
+
+  <!-- quiet caption -->
+  <text class="caption" x="450" y="830" text-anchor="middle" font-family="DM Mono, ui-monospace, monospace"
+        font-size="20" letter-spacing="6" fill="#F7F5F0" fill-opacity="0.45">χ(P) = 3</text>
+</svg>

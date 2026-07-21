@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — JMS Scholars</title>
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .contact-layout {
+    padding: 36px 64px 80px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 72px;
+  }
+
+  .contact-info-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .contact-info-item svg {
+    width: 20px;
+    height: 20px;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .contact-info-item h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .contact-info-item p { font-size: 14px; margin: 0; }
+
+  .contact-info-item p a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 3px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  }
+
+  .contact-info-item p a:hover {
+    color: var(--gold);
+    text-decoration-color: var(--gold);
+  }
+
+  form {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 40px;
+  }
+
+  .form-row { margin-bottom: 22px; }
+
+  .form-row.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--charcoal);
+    border-radius: 2px;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--gold);
+  }
+
+  textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    background: var(--navy);
+    color: var(--cream);
+    border: none;
+    padding: 15px 32px;
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s ease;
+  }
+
+  .form-submit:hover { background: var(--navy-light); }
+
+  .form-note {
+    font-size: 14px;
+    color: var(--charcoal-soft);
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .contact-layout { grid-template-columns: 1fr; padding: 40px 24px 64px; gap: 48px; }
+    .form-row.two-col { grid-template-columns: 1fr; }
+    form { padding: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="symbol-field" id="symbol-field" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="logo">
+        <object type="image/svg+xml" data="assets/logo-animated.svg" class="logo-img" aria-label="JMS Scholars logo"><img src="assets/logo.png" alt="JMS Scholars logo" class="logo-img"></object>
+        <span class="logo-text">
+          <span class="logo-mark"><img src="assets/jms-mark.svg" alt="jms" class="logo-jms-img"><span class="logo-dot">·</span><img src="assets/scholars-mark.svg" alt="scholars" class="logo-scholars-img"></span>
+          <span class="logo-tagline">Journey made simple</span>
+        </span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="portal/login.html" class="nav-cta">Student login</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+        <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="contact-layout wrap">
+    <div>
+      <div class="eyebrow">Contact</div>
+      <h1>Let's talk maths.</h1>
+      <p style="margin:20px 0 40px;font-size:16px;max-width:400px;">Book a free consult, ask a question about the curriculum, or request a sample worksheet — send a message and we'll reply directly.</p>
+
+      <div class="contact-info-item">
+        <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>
+        <div>
+          <h3>Email</h3>
+          <p>jmsscholars@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.5 2.1L8 10.1a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2z"/></svg>
+        <div>
+          <h3>Phone</h3>
+          <p>+61 405 156 295</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <div>
+          <h3>WhatsApp</h3>
+          <p><a href="https://wa.me/61405156295?text=Hi%2C%20I%27d%20like%20to%20ask%20about%20JMS%20Scholars%20tutoring" target="_blank" rel="noopener">Chat with us directly</a></p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <h3>Location</h3>
+          <p>Perth, Western Australia</p>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <svg aria-hidden="true"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <div>
+          <h3>Response time</h3>
+          <p>Usually within 24 hours</p>
+        </div>
+      </div>
+    </div>
+
+    <form action="https://formspree.io/f/xrewrjye" method="POST">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="form-row two-col">
+        <div>
+          <label for="parent-name">Your name</label>
+          <input type="text" id="parent-name" name="name" placeholder="Full name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="name@email.com" required>
+        </div>
+      </div>
+
+      <div class="form-row two-col">
+        <div>
+          <label for="student-year">Student's year level</label>
+          <select id="student-year" name="year_level">
+            <option value="Year 11">Year 11</option>
+            <option value="Year 12">Year 12</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label for="course-interest">Course of interest</label>
+          <select id="course-interest" name="course_interest">
+            <option value="Specialist">Specialist</option>
+            <option value="Methods">Methods</option>
+            <option value="Applications">Applications</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us a bit about what you're looking for" required></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Send message</button>
+      <p class="form-note">We usually reply within 24 hours. Your details are only used to respond to your enquiry.</p>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">JMS<span>·</span>Scholars</div>
+        <div class="footer-tagline">Journey made simple</div>
+        <p class="footer-desc">WACE Year 11–12 Mathematics tutoring in Perth, built on a decade of university teaching experience.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Site</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="courses.html">Courses</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Students</h4>
+        <a href="portal/login.html">Student login</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:jmsscholars@gmail.com">jmsscholars@gmail.com</a>
+        <a href="tel:+61405156295">+61 405 156 295</a>
+        <a href="https://wa.me/61405156295?text=Hi%2C%20I%27d%20like%20to%20ask%20about%20JMS%20Scholars%20tutoring" target="_blank" rel="noopener">WhatsApp</a>
+        <span>Perth, Australia</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 JMS Scholars. All rights reserved.</span>
+      <span>Perth, Western Australia</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
